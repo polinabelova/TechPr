@@ -7,6 +7,7 @@ class Employee:
         self.__dict__[name] = value
 
 # Вносим изменения в файл
+# Вносим изменения в файл в ветке 1
 
 def read_csv():
     collect = []
