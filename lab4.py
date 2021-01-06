@@ -6,7 +6,7 @@ class Employee:
     def __setattr__(self, name, value):
         self.__dict__[name] = value
 
-
+# Вносим изменения в файл
 
 def read_csv():
     collect = []
@@ -38,4 +38,4 @@ if __name__ == "__main__":
     collect.append(men)
 
     print(collect[0].name)
-    
+    # 
