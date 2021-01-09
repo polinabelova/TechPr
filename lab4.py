@@ -2,14 +2,15 @@ import os
 import csv
 path = "D:\Documents\УЧЕБА\лабораторные\лабы 2 курс\Тех.Пр\lab3"
 
-class Employee:
+
+class MyData:
+    def __setattr__(self, name, value): 
+        self.__dict__[name] = value
+
+class Employee(MyData):
     def __setattr__(self, name, value):
         self.__dict__[name] = value
 
-# Вносим изменения в файл
-# Вносим изменения в файл в ветке 1
-
-# Вносим изменения в файл в ветке 2
 def read_csv():
     collect = []
     csv_path = path + "\\data.csv"
@@ -18,10 +19,16 @@ def read_csv():
         reader = csv.reader(f_obj)
         for row in reader:
             data = row[1:]
+            emp = Employee()
+            emp.__setattr__("FIO", data[0])
+            emp.__setattr__("position", data[1])
+            emp.__setattr__("exp", data[2])
+            print(emp.FIO)
+
             # men.__setattr__("surname", "Иванов")
-            # men.__setattr__("name", "Иван")
+            # # men.__setattr__("name", "Иван")
             # collect.append(men)
-            print (data[0])
+            # print (data[0])
             
             
     
@@ -34,10 +41,10 @@ if __name__ == "__main__":
     read_csv()
     collect = []
 
-    men = Employee()
-    men.__setattr__("surname", "Иванов")
-    men.__setattr__("name", "Иван")
-    collect.append(men)
+    # men = Employee()
+    # men.__setattr__("surname", "Иванов")
+    # men.__setattr__("name", "Иван")
+    # collect.append(men)
 
-    print(collect[0].name)
-    # 
+    # print(collect[0].name)
+    # # 
